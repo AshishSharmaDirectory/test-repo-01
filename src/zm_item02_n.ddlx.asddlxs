@@ -1,0 +1,29 @@
+@Metadata.layer: #CORE
+annotate entity ZC_ITEM02_N with
+{
+  @UI.facet: [
+  {
+  purpose: #STANDARD,
+  type: #IDENTIFICATION_REFERENCE,
+  label: 'Items',
+  position: 10
+  } ]
+  ItemId;
+
+  @UI.lineItem: [{ position: 10, label: 'Name' }]
+  @UI.identification: [{ position: 10, label: 'Name' }]
+  Name;
+
+  @UI.lineItem: [{ position: 20, label: 'Description' }]
+  @UI.identification: [{ position: 20, label: 'Description' }]
+  Description;
+
+  @UI.lineItem: [{ position: 30, label: 'Price' }]
+  @UI.identification: [{ position: 30, label: 'Price' }]
+  Price;
+
+  @UI.lineItem: [{ position: 40, label: 'Status Code' }]
+  @UI.identification: [{ position: 40, label: 'Status Code' }]
+  StatusCode;
+
+}

@@ -1,0 +1,36 @@
+managed implementation in class zbp_r_item02_n unique;
+strict ( 2 );
+with draft;
+define behavior for ZR_ITEM02_N alias item
+persistent table zitem02_n
+draft table zitem02_n_d
+lock master
+total etag LastChangedAt
+authorization master ( instance )
+etag master LastChangedAt
+{
+  create ( authorization : global );
+  update;
+  delete;
+  field ( readonly, numbering : managed ) ItemId;
+
+draft action Activate optimized;
+draft action Edit;
+draft action Discard;
+draft action Resume;
+draft determine action Prepare { }
+
+  mapping for zitem02_n
+    {
+      ItemId             = item_id;
+      name               = name;
+      Description        = description;
+      Price              = price;
+      StatusCode         = status_code;
+      LastChangedAt      = last_changed_at;
+      LocalCreatedAt     = local_created_at;
+      LocalLastChangedAt = local_last_changed_at;
+      LocalLastChangedBy = local_last_changed_by;
+      LocalCreatedBy     = local_created_by;
+    }
+}

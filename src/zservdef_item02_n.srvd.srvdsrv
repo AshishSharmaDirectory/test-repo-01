@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Item'
+define service ZServDef_Item02_N {
+  expose ZC_ITEM02_N as item;
+}
