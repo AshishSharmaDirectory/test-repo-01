@@ -1,6 +1,7 @@
 @Metadata.layer: #CORE
 annotate entity ZC_ITEM02_N with
 {
+
   @UI.facet: [
   {
   purpose: #STANDARD,
@@ -10,20 +11,41 @@ annotate entity ZC_ITEM02_N with
   } ]
   ItemId;
 
-  @UI.lineItem: [{ position: 10, label: 'Name' }]
+  @UI.lineItem: [{ position: 10, label: 'Product Name' }]
   @UI.identification: [{ position: 10, label: 'Name' }]
+
+  @Consumption.valueHelpDefinition: [{ entity:{ name: 'ZI_Product_Names', element: 'Value' },
+   distinctValues: true
+  //   additionalBinding: [{ localElement: 'ProductDesc',
+  //                         element: 'Descript',
+  //                         usage: #FILTER_AND_RESULT }]
+  }]
   Name;
 
   @UI.lineItem: [{ position: 20, label: 'Description' }]
   @UI.identification: [{ position: 20, label: 'Description' }]
   Description;
 
+  //  @UI.identification: [{ position: 15, label: '' }]
+  //  ProductDesc;
+
   @UI.lineItem: [{ position: 30, label: 'Price' }]
   @UI.identification: [{ position: 30, label: 'Price' }]
   Price;
 
-  @UI.lineItem: [{ position: 40, label: 'Status Code' }]
-  @UI.identification: [{ position: 40, label: 'Status Code' }]
+
+  @UI.lineItem: [{ position: 35, label: 'Disocunt' }]
+  @UI.identification: [{ position: 35, label: 'Discount' }]
+  Disc;
+
+  @UI.lineItem: [{ position: 38, label: 'FinalPrice' }]
+  @UI.identification: [{ position: 38, label: 'FinalPrice' }]
+  FPrice;
+  
+  @UI.lineItem: [{ position: 40, label: 'Status Code' },
+  { type: #FOR_ACTION, dataAction: 'updStatus', label: 'Update Status' }]
+  @UI.identification: [{ position: 40, label: 'Status Code' },
+  { type: #FOR_ACTION, dataAction: 'updStatus', label: 'Update Status' }]
   StatusCode;
 
 }

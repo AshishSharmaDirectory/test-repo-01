@@ -1,0 +1,49 @@
+managed implementation in class zbp_r_prj_hdr unique;
+//strict ( 2 );
+
+define behavior for ZR_PRJ_HDR alias Project
+persistent table zprj_hdr
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create ( authorization : global );
+  update;
+  delete;
+  field ( readonly ) ProjectId;
+  association _domain { create; }
+}
+
+define behavior for ZI_Domain alias Domain
+persistent table zprj_domain
+lock dependent by _Project
+authorization dependent by _Project
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) DomainId;
+  //  field ( readonly ) ProjectId;
+  field ( readonly : update ) ProjectId;
+  association _Project;
+  association _Task { create; }
+}
+
+//define behavior for ZI_TASK alias Task
+//persistent table zprj_task
+//
+//lock dependent by _Domain
+////authorization dependent by _Domain
+//
+//
+////lock dependent by <no_to_master_association found>
+////authorization dependent by <no_to_master_association found>
+////etag master <field_name>
+//{
+//  update;
+//  delete;
+//  field ( readonly ) TaskId;
+//  //  field ( readonly ) DomainId;
+//  field ( readonly : update ) DomainId;
+//  association _Domain;
+//}

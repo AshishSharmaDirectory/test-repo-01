@@ -1,0 +1,13 @@
+@EndUserText.label: 'Access control for Travel data'
+@MappingRole: true
+define role Z_A_ACCESS_CONTROL_TRAVELDATA {
+    grant
+        select
+            on
+                Z_I_TravelData
+                    where 
+                        AgencyId = '000100' or AgencyId = '000101'  ;
+                        /* or TravelId = $session.user; */ 
+
+                        
+}

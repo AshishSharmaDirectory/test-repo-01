@@ -6,19 +6,34 @@ persistent table zitem02_n
 draft table zitem02_n_d
 lock master
 total etag LastChangedAt
-authorization master ( instance )
 etag master LastChangedAt
+authorization master ( instance )
 {
   create ( authorization : global );
   update;
   delete;
   field ( readonly, numbering : managed ) ItemId;
 
-draft action Activate optimized;
-draft action Edit;
-draft action Discard;
-draft action Resume;
-draft determine action Prepare { }
+  //  Apply Actions, Custom button
+  action ( features : instance ) updStatus result [1] $self;
+
+  draft action Activate optimized;
+  draft action Edit;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare { }
+
+  //  Apply validations
+  validation ValidatePrice on save { field Price; create; }
+
+  //  Apply Determinations
+  //  determination ProductPrice on save { field Name; create; }
+
+  //  Apply Side effect, so that changes are visible on UI instantly after pressing Enter
+  //  Commented the above Determination on Save so that Side effect can be tested
+  determination ProductPrice on modify { field Name; create; }
+
+  side effects { field Name affects field Price; }
 
   mapping for zitem02_n
     {

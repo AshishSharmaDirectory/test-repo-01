@@ -1,0 +1,53 @@
+managed implementation in class ZBP_R_TRAVEL_HDR_N unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZR_TRAVEL_HDR_N alias ZrTravelHdrN
+persistent table ZTRAVEL_HDR_N
+extensible
+draft table ZTRAVEL_HDR_N_D
+etag master LocChangedAt
+lock master total etag ChangedAt
+authorization master( global )
+{
+  field ( mandatory : create )
+   AgencyID,
+   TravelID;
+
+  field ( readonly )
+   ChangedAt,
+   ChangedBy,
+   Createdby,
+   LocChangedAt;
+
+  field ( readonly : update )
+   AgencyID,
+   TravelID;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZTRAVEL_HDR_N corresponding extensible
+  {
+    AgencyID = AGENCY_ID;
+    TravelID = TRAVEL_ID;
+    Description = DESCRIPTION;
+    CustomerID = CUSTOMER_ID;
+    BeginDate = BEGIN_DATE;
+    EndDate = END_DATE;
+    Status = STATUS;
+    ChangedAt = CHANGED_AT;
+    ChangedBy = CHANGED_BY;
+    Createdby = CREATEDBY;
+    LocChangedAt = LOC_CHANGED_AT;
+  }
+
+}

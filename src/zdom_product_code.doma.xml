@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DOMA" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD01V>
+    <DOMNAME>ZDOM_PRODUCT_CODE</DOMNAME>
+    <DDLANGUAGE>E</DDLANGUAGE>
+    <DATATYPE>CHAR</DATATYPE>
+    <LENG>000050</LENG>
+    <OUTPUTLEN>000050</OUTPUTLEN>
+    <VALEXI>X</VALEXI>
+    <DDTEXT>Domain for Product Code</DDTEXT>
+    <DOMMASTER>E</DOMMASTER>
+   </DD01V>
+   <DD07V_TAB>
+    <DD07V>
+     <DOMNAME>ZDOM_PRODUCT_CODE</DOMNAME>
+     <VALPOS>0001</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>HEADSET</DOMVALUE_L>
+     <DDTEXT>Jabra Headset</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZDOM_PRODUCT_CODE</DOMNAME>
+     <VALPOS>0002</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>HEADPHONES</DOMVALUE_L>
+     <DDTEXT>Noise Cancelling</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZDOM_PRODUCT_CODE</DOMNAME>
+     <VALPOS>0003</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>MOUSE</DOMVALUE_L>
+     <DDTEXT>Desktop Lazer Mouse</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZDOM_PRODUCT_CODE</DOMNAME>
+     <VALPOS>0004</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>TOUCH PAD</DOMVALUE_L>
+     <DDTEXT>Samsung Touch Pad</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZDOM_PRODUCT_CODE</DOMNAME>
+     <VALPOS>0005</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>WEBCAM</DOMVALUE_L>
+     <DDTEXT>Web Camers</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZDOM_PRODUCT_CODE</DOMNAME>
+     <VALPOS>0006</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>LAPTOP</DOMVALUE_L>
+     <DDTEXT>High-end Buisness Laptop</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZDOM_PRODUCT_CODE</DOMNAME>
+     <VALPOS>0007</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>KEYBOARD</DOMVALUE_L>
+     <DDTEXT>Wireless Keyboard</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZDOM_PRODUCT_CODE</DOMNAME>
+     <VALPOS>0008</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>LIQUID</DOMVALUE_L>
+     <DDTEXT>DG-Chemicals</DDTEXT>
+    </DD07V>
+   </DD07V_TAB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

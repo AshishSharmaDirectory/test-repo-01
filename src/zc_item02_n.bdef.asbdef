@@ -8,6 +8,8 @@ define behavior for ZC_ITEM02_N alias item
   use update;
   use delete;
 
+  use action updStatus;
+
   use action Activate;
   use action Edit;
   use action Discard;
