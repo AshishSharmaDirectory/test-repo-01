@@ -1,34 +1,95 @@
 managed implementation in class zbp_r_prj_hdr unique;
-//strict ( 2 );
+strict ( 2 );
+with draft;
 
+//Behavior Defination for Parent
 define behavior for ZR_PRJ_HDR alias Project
 persistent table zprj_hdr
+draft table zprj_hdr_draft
 lock master
+total etag LastChangedAt
+etag master LastChangedAt
 authorization master ( instance )
-//etag master <field_name>
 {
   create ( authorization : global );
   update;
   delete;
-  field ( readonly ) ProjectId;
-  association _domain { create; }
+  field ( readonly, numbering : managed ) ProjectId;
+
+  //This allows child records to be created from the parent object page.
+  association _domain { create; with draft; }
+
+  draft action Activate optimized;
+  draft action Edit;
+  draft action Resume;
+  draft action Discard;
+  draft determine action Prepare { }
+
+  mapping for zprj_hdr
+    {
+      ProjectId          = project_id;
+      ProjectCode        = project_code;
+      CustomerName       = customer_name;
+      ProjectManager     = project_manager;
+      StartDate          = start_date;
+      EndDate            = end_date;
+      Status             = status;
+      CreatedBy          = created_by;
+      CreatedAt          = created_at;
+      LastChangedBy      = last_changed_by;
+      LastChangedAt      = last_changed_at;
+      LocalLastChangedAt = local_last_changed_at;
+      //      project_id            = project_id;
+      //      project_code          = project_code;
+      //      customer_name         = customer_name;
+      //      project_manager       = project_manager;
+      //      start_date            = start_date;
+      //      end_date              = end_date;
+      //      status                = status;
+      //      created_by            = created_by;
+      //      created_at            = created_at;
+      //      last_changed_by       = last_changed_by;
+      //      last_changed_at       = last_changed_at;
+      //      local_last_changed_at = local_last_changed_at;
+    }
+
 }
 
+
+//Behavior Defination for Child
 define behavior for ZI_Domain alias Domain
 persistent table zprj_domain
+draft table zprj_domain_dr
 lock dependent by _Project
 authorization dependent by _Project
-//etag master <field_name>
+etag master ChangedAt
 {
+  //  create;
   update;
   delete;
-  field ( readonly ) DomainId;
-  //  field ( readonly ) ProjectId;
-  field ( readonly : update ) ProjectId;
+  field ( readonly ) ProjectId;
+  //  field ( readonly : update ) ProjectId;
+  field ( readonly, numbering : managed ) DomainId;
+
   association _Project;
-  association _Task { create; }
+  //  association _Task { create; }
+
+  mapping for zprj_domain
+    {
+      ProjectId  = project_id;
+      DomainId   = domain_id;
+      DomainCode = domain_code;
+      DomainName = domain_name;
+      DomainLead = domain_lead;
+      Status     = status;
+      CreatedBy  = created_by;
+      CreatedAt  = created_at;
+      ChangedBy  = changed_by;
+      ChangedAt  = changed_at;
+    }
 }
 
+//**********************************************************
 //define behavior for ZI_TASK alias Task
 //persistent table zprj_task
 //

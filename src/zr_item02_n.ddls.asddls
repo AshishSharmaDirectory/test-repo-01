@@ -4,7 +4,7 @@
 @Metadata.ignorePropagatedAnnotations: true
 @Metadata.allowExtensions: true
 define root view entity ZR_ITEM02_N
-  as select from zitem02_n
+  as select from zitem02_n 
   //composition of target_data_source_name as _association_name
   //  association [0..*]to ZI_Product_Names as _Products
   //  on $projection.Name = _Products.Value

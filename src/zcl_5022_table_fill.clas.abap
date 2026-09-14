@@ -17,7 +17,8 @@ ENDCLASS.
 
 
 
-CLASS zcl_5022_table_fill IMPLEMENTATION.
+CLASS ZCL_5022_TABLE_FILL IMPLEMENTATION.
+
 
   METHOD load_data.
     DATA: ls_header TYPE zTravel_hdr_N,
@@ -67,6 +68,7 @@ CLASS zcl_5022_table_fill IMPLEMENTATION.
     COMMIT WORK.
   ENDMETHOD.
 
+
   METHOD if_oo_adt_classrun~main.
 
 
@@ -75,5 +77,4 @@ CLASS zcl_5022_table_fill IMPLEMENTATION.
 
 
   ENDMETHOD.
-
 ENDCLASS.

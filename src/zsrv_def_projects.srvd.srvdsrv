@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition for Projects'
+define service ZSRV_DEF_Projects {
+  expose ZC_PRJ_HDR as Project;
+  expose ZC_Domain  as Domain;
+}

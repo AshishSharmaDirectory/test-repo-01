@@ -1,0 +1,79 @@
+@Metadata.layer: #CORE
+annotate entity ZC_PRJ_HDR with
+{
+  @UI.facet: [
+  {
+  id: 'ProjectInfo',
+  purpose: #STANDARD,
+  type: #IDENTIFICATION_REFERENCE,
+  label: 'Project',
+  position: 10
+  },
+
+  {
+  id            : 'DomainInfo',
+  purpose       : #STANDARD,
+  type          : #LINEITEM_REFERENCE,
+  targetElement : '_domain',
+  position      : 20,
+  label         : 'Domains'
+  }
+
+
+  //  {
+  //  id: 'Domain',
+  //  type: #LINEITEM_REFERENCE,
+  //  targetElement: '_Domain',
+  //  label: 'Domains',
+  //    position: 20
+  //  }
+  ]
+  ProjectId;
+
+  @UI.lineItem: [{ position: 10, label: 'Project Code' }]
+  @UI.identification: [{ position: 10, label: 'Project Code' }]
+  ProjectCode;
+
+  //  @Consumption.valueHelpDefinition:
+  //  [{ entity:{ name: 'ZI_Product_Names', element: 'Value' },
+  //   distinctValues: true
+  //  //   additionalBinding: [{ localElement: 'ProductDesc',
+  //  //                         element: 'Descript',
+  //  //                         usage: #FILTER_AND_RESULT }]
+  //  }]
+  //  Name;
+
+  @UI.lineItem: [{ position: 20, label: 'Customer Name' }]
+  @UI.identification: [{ position: 20, label: 'Cust Name' }]
+  CustomerName;
+
+  //  @UI.identification: [{ position: 15, label: '' }]
+  //  ProductDesc;
+
+  @UI.lineItem: [{ position: 30, label: 'Project Manager' }]
+  @UI.identification: [{ position: 30, label: 'Proj Manager' }]
+  ProjectManager;
+
+
+  @UI.lineItem: [{ position: 40, label: 'Start Date' }]
+  @UI.identification: [{ position: 40, label: 'Start Date' }]
+  StartDate;
+
+  @UI.lineItem: [{ position: 50, label: 'End Date' }]
+  @UI.identification: [{ position: 50, label: 'End Date' }]
+  EndDate;
+
+  @UI.lineItem: [{ position: 60, label: 'Status' }]
+  @UI.identification: [{ position: 60, label: 'Status' }]
+  Status;
+
+  //  @UI.lineItem: [{ position: 40, label: 'Status Code' },
+  //  { type: #FOR_ACTION, dataAction: 'updStatus', label: 'Update Status' }]
+  //  @UI.identification: [{ position: 40, label: 'Status Code' },
+  //  { type: #FOR_ACTION, dataAction: 'updStatus', label: 'Update Status' }]
+  //  statuscode;
+
+  //  //  Domain Fields
+  //  @UI.identification: [{ position: 70, label: 'Domain'  }]
+  //  _domain;
+}

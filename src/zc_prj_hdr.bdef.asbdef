@@ -1,0 +1,29 @@
+projection;
+strict ( 2 ); //Uncomment this line in order to enable strict mode 2. The strict mode has two variants (strict(1), strict(2)) and is prerequisite to be future proof regarding syntax and to be able to release your BO.
+use draft;
+
+define behavior for ZC_PRJ_HDR alias Project
+{
+  use create;
+  use update;
+  use delete;
+
+  use action Activate;
+  use action Edit;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+
+  //  use association _domain with draft;
+  use association _domain { create; with draft; }
+}
+
+
+define behavior for ZC_Domain alias Domain
+{
+  use update;
+  use delete;
+
+  use association _Project;
+
+}

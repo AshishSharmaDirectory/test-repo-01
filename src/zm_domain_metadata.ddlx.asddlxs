@@ -1,0 +1,37 @@
+@Metadata.layer: #CORE
+annotate entity ZC_Domain with
+{
+
+  //  @UI.facet: [{
+  //  id: 'DomainInfo',
+  //  type: #IDENTIFICATION_REFERENCE,
+  //  label: 'Domains',
+  //  position: 10
+  //  }]
+
+  @UI.facet: [{
+  id : 'General',
+  purpose : #STANDARD,
+  type : #IDENTIFICATION_REFERENCE,
+  label : 'Domain Details',
+  position : 10
+  }]
+
+  @UI.lineItem: [{ position: 10, label: 'Domain Code', importance: #HIGH }]
+  @UI.identification: [{ position: 10, label: 'Domain Code' }]
+  DomainCode;
+
+  @UI.lineItem: [{ position: 20, label: 'Domain Name', importance: #HIGH }]
+  @UI.identification: [{ position: 20, label: 'Domain Name' }]
+  DomainName;
+
+  @UI.lineItem: [{ position: 30, label: 'Domain Lead', importance: #HIGH }]
+  @UI.identification: [{ position: 30, label: 'Domain Lead' }]
+  DomainLead;
+
+  @UI.lineItem: [{ position: 40, label: 'Status', importance: #HIGH }]
+  @UI.identification: [{ position: 40, label: 'Status' }]
+  Status;
+
+
+}

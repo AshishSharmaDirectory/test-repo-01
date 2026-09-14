@@ -15,6 +15,7 @@ authorization master ( instance )
   field ( readonly, numbering : managed ) ItemId;
 
   //  Apply Actions, Custom button
+  // Get Feature Instance is for Disabling the button on UI based on condn
   action ( features : instance ) updStatus result [1] $self;
 
   draft action Activate optimized;

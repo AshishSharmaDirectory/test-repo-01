@@ -2,7 +2,6 @@ CLASS zcl_cal_discount DEFINITION
   PUBLIC
   FINAL
   CREATE PUBLIC .
-
   PUBLIC SECTION.
     INTERFACES if_sadl_exit_calc_element_read.
 
@@ -10,13 +9,9 @@ CLASS zcl_cal_discount DEFINITION
   PRIVATE SECTION.
 ENDCLASS.
 
-
-
-CLASS zcl_cal_discount IMPLEMENTATION.
+CLASS ZCL_CAL_DISCOUNT IMPLEMENTATION.
   METHOD if_sadl_exit_calc_element_read~calculate.
-
     DATA: LT_items TYPE STANDARD TABLE OF zc_item02_n WITH DEFAULT KEY.
-
     LT_items =  CORRESPONDING #( it_original_data ).
 
     LOOP AT LT_items ASSIGNING FIELD-SYMBOL(<lfs_item>) WHERE Price > 0.
@@ -28,13 +23,9 @@ CLASS zcl_cal_discount IMPLEMENTATION.
         <lfs_item>-FPrice = <lfs_item>-Price - <lfs_item>-Disc.
       ENDIF.
     ENDLOOP.
-
     ct_calculated_data = CORRESPONDING #( LT_items ).
-
   ENDMETHOD.
 
   METHOD if_sadl_exit_calc_element_read~get_calculation_info.
-
   ENDMETHOD.
-
 ENDCLASS.
